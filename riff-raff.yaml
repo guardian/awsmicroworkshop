@@ -4,7 +4,7 @@ templates:
   awsmicroworkshop:
     type: aws-lambda
     app: awsmicroworkshop
-    contentDirectory:   awsmicroworkshop
+    contentDirectory: awsmicroworkshop
     parameters:
       bucket: gu-jr-microservice-workshop-dist
       functionNames: [awsmicroworkshop-]
