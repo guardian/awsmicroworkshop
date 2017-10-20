@@ -10,8 +10,7 @@ templates:
       functionNames: [awsmicroworkshop-]
       fileName: awsmicroworkshop.zip
       prefixStack: false
-
-  deployments:
-    awsmicroworkshop-upload:
-      template: awsmicroworkshop
-      actions: [uploadLambda]
+deployments:
+  awsmicroworkshop-upload:
+    template: awsmicroworkshop
+    actions: [uploadLambda]
