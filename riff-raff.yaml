@@ -8,7 +8,7 @@ templates:
     parameters:
       bucket: gu-jr-microservice-workshop-dist
       functionNames: [awsmicroworkshop-]
-      fileName:  awsmicroworkshop.zip
+      fileName: awsmicroworkshop.zip
       prefixStack: false
 
   deployments:
