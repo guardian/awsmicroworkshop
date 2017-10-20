@@ -84,3 +84,18 @@ Resources:
         ParentId: !GetAtt [WorkshopApi, RootResourceId]
         PathPart: helloWorld
     DependsOn: WorkshopApi
+  WorkshopApiMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      AuthorizationType: NONE
+      RestApiId: !Ref WorkshopApi
+      ResourceId: !Ref WorkshopApiResource
+      HttpMethod: POST
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${WorkshopLambda.Arn}/invocations
+    DependsOn:
+    - WorkshopApi
+    - WorkshopLambda
+    - WorkshopApiResource 
