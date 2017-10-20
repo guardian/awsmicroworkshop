@@ -72,3 +72,15 @@ Resources:
       Role: !GetAtt ExecutionRole.Arn
       Runtime: java8
       Timeout: 300
+  WorkshopApi:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Description: Api to call our lambda
+      Name: !Sub ${App}-api-${Stage}
+  WorkshopApiResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+        RestApiId: !Ref WorkshopApi
+        ParentId: !GetAtt [WorkshopApi, RootResourceId]
+        PathPart: helloWorld
+    DependsOn: WorkshopApi
