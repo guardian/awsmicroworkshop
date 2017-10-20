@@ -14,3 +14,15 @@ deployments:
   awsmicroworkshop-upload:
     template: awsmicroworkshop
     actions: [uploadLambda]
+  awsmicroworkshop-cfn:
+    type: cloud-formation
+    app: awsmicroworkshop
+    parameters:
+      prependStackToCloudFormationStackName: false
+      cloudFormationStackName: awsmicroworkshop
+      templatePath: cfn.yaml
+    dependencies: [awsmicroworkshop-upload]
+  awsmicroworkshop-lambda-update:
+    template: awsmicroworkshop
+    actions: [updateLambda]
+    dependencies: [awsmicroworkshop-cfn]
