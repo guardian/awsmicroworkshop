@@ -1,5 +1,6 @@
 package com.gu.microserviceWorkshop
 import io.circe.syntax._
+import java.io._
 import java.nio.charset.StandardCharsets.UTF_8
 
 object Lambda {
